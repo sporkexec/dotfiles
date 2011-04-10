@@ -1,0 +1,46 @@
+[trusted]
+users = root, jake, rmendoza
+groups = root, webdev
+
+[ui]
+username = Jacob Courtneay <jacob@sporkexec.com>
+editor = vim
+
+[alias]
+br = branch
+slog = log --style=/home/jake/.hgtemplates/map-cmdline.slog
+nlog = log --style=/home/jake/.hgtemplates/map-cmdline.nlog
+clog = glog --style=/home/jake/.hgtemplates/map-cmdline.sglog
+
+
+[extensions]
+pager =
+parentrevspec =
+progress =
+color =
+fetch = 
+children =
+graphlog =
+churn =
+hgk =
+prompt=/home/jake/.hgprompt/prompt.py
+
+[pager]
+pager = LESS='FSRX' less
+attend = annotate, cat, diff, export, glog, log, qdiff, clog, slog, nlog
+
+[progress]
+delay = 0
+refresh = 0.1
+clear-complete = False
+
+[color]
+status.modified = magenta bold
+status.added = green bold
+status.removed = red bold
+status.deleted = cyan bold
+status.unknown = blue bold
+status.ignored = black bold
+
+[paths]
+live = ssh://howcool.com//var/www/html

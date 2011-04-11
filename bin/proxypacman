@@ -1,0 +1,8 @@
+#!/bin/sh
+# Assumes pacman.conf has an XferCommand set up for proxying commented out.
+# Label it with #proxy#. For example, my config has:
+#proxy#XferCommand = /usr/bin/curl --socks5-hostname localhost:1080 %u > %o
+
+# Comment out any active XferCommand and specify proxy command.
+sed -e 's/^XferCommand/#XferCommand/g' -e 's/^#proxy#//g' < /etc/pacman.conf > /tmp/pacman.proxy.conf
+exec pacman --config /tmp/pacman.proxy.conf $@

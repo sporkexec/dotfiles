@@ -1,0 +1,17 @@
+#!/bin/sh
+# dul: du with level
+# Usage: dul [depth=1 [directory=.]]
+# Examine the size of the directory down to a certain depth.
+# Created because typing --max-depth= is fucking annoying; there's no short option.
+
+DEPTH=$1
+if [ "$DEPTH" == "" ]; then
+	DEPTH=1
+fi
+
+DIR="$2"
+if [ "$DIR" == "" ]; then
+	DIR=.
+fi
+
+du -hc --max-depth=$DEPTH "$DIR" 2> /dev/null

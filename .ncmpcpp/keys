@@ -76,7 +76,7 @@
 #
 #key_stop = 's'
 #
-#key_pause = 'P'
+key_pause = 'p'
 #
 #key_next = '>'
 #
@@ -152,7 +152,7 @@
 #
 #key_toggle_auto_center = 'U'
 #
-#key_toggle_display_mode = 'p'
+key_toggle_display_mode = 'P'
 #
 #key_toggle_separators_in_playlist = '!'
 #

@@ -44,6 +44,8 @@ alias vim='vim -p'
 export VISUAL=vim
 export EDITOR=vim
 
+export BROWSER=chromium
+
 # pretty diff output
 alias diff=colordiff
 alias less='less -R'

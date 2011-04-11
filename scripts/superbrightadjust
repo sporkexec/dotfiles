@@ -1,0 +1,22 @@
+#!/bin/bash
+# Use negative steps to go down.
+STEP=$1
+
+# If we're called too quickly, sometimes it will grab the value before the bus
+# has time to set the previous value and end up with no change and max cpu.
+# (This still doesn't work, processes are spawned too quickly by fluxbox and
+# all query the bus about the same time, and reset the value to the same
+# value. We need some kind of blocking IO to the PCI bus.)
+sleep 0.1
+
+BRIGHT=$[ 0x`sudo setpci -s 00:02.1 f4.b` + $STEP ]
+
+if [ $BRIGHT -gt 255 ]; then
+	BRIGHT=255
+elif [ $BRIGHT -lt 0 ]; then
+	BRIGHT=0
+fi
+
+BRIGHT=`echo "ibase=10;obase=16;$BRIGHT" | bc`
+sudo setpci -s 00:02.1 f4.b=$BRIGHT
+

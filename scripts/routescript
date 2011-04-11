@@ -1,0 +1,31 @@
+#!/bin/bash
+/sbin/iptables -F
+/sbin/iptables -t nat -F
+/sbin/iptables -t mangle -F #ignore if you get an error here
+/sbin/iptables -X #deletes every non-builtin chain in the table
+
+/sbin/iptables -A INPUT -m state --state ESTABLISHED,RELATED -j ACCEPT
+/sbin/iptables -A INPUT -m state --state NEW -i ! wlan0 -j ACCEPT
+
+/sbin/iptables -A FORWARD -i wlan0 -o eth0 -m state --state ESTABLISHED,RELATED -j ACCEPT
+/sbin/iptables -A FORWARD -i eth0 -o wlan0 -j ACCEPT
+
+# use this line if you have a static IP address from your ISP 
+# replace your static IP with x.x.x.x
+#/sbin/iptables -t nat -A POSTROUTING -o wlan0 -j SNAT --to x.x.x.x
+
+# use this line only if you have dynamic IP address from your ISP
+/sbin/iptables -t nat -A POSTROUTING -o wlan0 -j MASQUERADE
+
+/sbin/iptables -A FORWARD -i wlan0 -o wlan0 -j REJECT
+
+    	/sbin/modprobe iptable_nat #only if using iptables
+    	/sbin/modprobe ipt_MASQUERADE #only if using iptables
+
+        echo 1 > /proc/sys/net/ipv4/ip_forward
+    	# for RedHat users, the above line is not needed if you have
+    	# FORWARD_IPV4=true in /etc/sysconfig/network file
+
+    	echo "1" > /proc/sys/net/ipv4/ip_dynaddr
+    	# the above option is for Dynamic IP users (DHCP,PPP or BOOTP)
+

@@ -1,0 +1,2 @@
+#!/bin/sh
+sudo route add -net 169.254.0.0 netmask 255.255.0.0 dev wlan0

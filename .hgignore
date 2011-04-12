@@ -4,6 +4,7 @@
 .config
 .dbus
 .dmenu_cache
+.gconf
 .lesshst
 .links
 .local
@@ -14,6 +15,8 @@
 .ssh
 .vim/.netrwhist
 .viminfo
+.VirtualBox
 .wicd/WHEREAREMYFILES
+.zsnes
 
 .*.swp

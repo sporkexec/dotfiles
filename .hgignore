@@ -1,18 +1,28 @@
 .Xauthority
+.adobe
 .bash_history
-.cache/chromium/Default/Cache/
+.bittorrent
+.cache/
 .config
 .dbus
 .dmenu_cache
+.fluxbox
 .gconf
+.gem
+.gimp
+.kde4
 .lesshst
 .links
 .local
+.macromedia/
+.mozilla/
 .mpd
 .ncmpcpp/artists
 .ncmpcpp/error.log
 .pki
 .ssh
+.thunderbird/
+.thumbnails/
 .vim/.netrwhist
 .viminfo
 .VirtualBox
@@ -20,3 +30,7 @@
 .zsnes
 
 .*.swp
+
+cronjobs/
+dev/
+Downloads/

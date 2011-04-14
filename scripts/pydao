@@ -1,0 +1,109 @@
+#!/usr/bin/python2
+'''Small utility to process a folder of audio and burn it to cd using DAO mode.'''
+import sys, os, math, tempfile, subprocess
+from mutagen.easyid3 import EasyID3
+import mutagen.id3
+
+extensions = 'mp3', 'wav',
+recursive = False
+follow_symlinks = False
+paths = []
+
+# Grab inputs.
+for i in xrange(len(sys.argv)):
+	'''FIXME: Impossible to have a path named -h or -s or -r. I don't really care.'''
+	if sys.argv[i] == '-h':
+		print "Usage: %s [-h] [-s] [-r] [<path1> [<path2> [<pathN>]]]" % sys.argv[0]
+		print "-h: Help"
+		print "-s: Follow symlinks"
+		print "-r: Recurse into subdirectories"
+		print "<path1>: Path containing tracks. If none specified, defaults to current working directory."
+		sys.exit(0)
+	elif sys.argv[i] == '-r':
+		recursive = True
+	elif sys.argv[i] == '-s':
+		follow_symlinks = True
+	elif i != 0:
+		paths.append(sys.argv[i])
+
+# Default to cwd.
+if paths == []:
+	paths = ['.']
+
+filenames = []
+# Determine if inputs are valid and get filenames.
+for path in paths:
+	if os.path.islink(path) and not follow_symlinks:
+		print 'Error: "%s" appears to be a symbolic link.' % path
+		sys.exit(1)
+	elif not os.path.isdir(path):
+		print 'Error: "%s" does not appear to be a directory.' % path
+		sys.exit(1)
+	for root, dirs, files in os.walk(path, followlinks=follow_symlinks):
+		for fname in files:
+			if fname.split('.')[-1] in extensions:
+				filenames.append(os.path.realpath(os.path.join(root, fname)))
+		if not recursive:
+			break
+
+# Uniquify, not the absolute fastest way but still very fast.
+filenames = set(filenames)
+
+# Digits in length + 1, ie. 3 if 12 tracks, 5 if 1320 tracks.
+# The idea is to leave an extra digit for sorting.
+# That is, the track segment of the sort key for tracks without metadata will be
+# '999', while track 13 would be 013, assuming we have 10..99 tracks (padlen=3).
+# We don't floor before casting but it doesn't matter since it can only go up.
+padlen = int(math.log10(len(filenames))) + 2
+
+def tracksort(fname):
+	'''Helper function for sort().
+	Generates a sort hash for the track consisting of track number (if
+	available) inserted into the filename. This has the effect of sorting by
+	track number within folders with tracks without numbers appearing at the
+	end of their folders in alphabetical order. This method preserves grouping
+	across folders, but still prefers metadata which is typically more accurate
+	than the filename for determining sort order.'''
+
+	tracknum = '9' * padlen
+	try:
+		# ID3 spec allows a [this]/[total] format as well as [this], so...
+		tracknum = str(int(EasyID3(fname)['tracknumber'][0].split('/')[-1]))
+	except:
+		pass # Don't care to add anything better at this point.
+
+	tracknum = tracknum.zfill(padlen)
+	head, tail = os.path.split(fname)
+
+	return head + tracknum + tail # Just a sort key, no os.path.join needed.
+
+filenames = sorted(filenames, key=tracksort)
+tmp_filenames = []
+output = open('/dev/null', 'w+') # Because ffmpeg can't shut the fuck up.
+
+print "Preparing to burn %s tracks." % len(filenames)
+for fname in filenames:
+	sys.stdout.write('Decoding "%s"... ' % fname)
+	tmpname = tempfile.mkstemp(prefix='pydoa_', suffix='.wav')[1]
+	subprocess.call(('ffmpeg', '-y', '-i', fname, tmpname), stdout=output, stderr=output)
+	tmp_filenames.append(tmpname)
+	sys.stdout.write('Done.\n')
+
+with tempfile.NamedTemporaryFile(prefix='pydoa_', suffix='.toc') as tocfile:
+	sys.stdout.write("Assembling TOC file... ")
+	tocfile.write('CD_DA')
+	for fname in tmp_filenames:
+		tocfile.write('\n\nTRACK AUDIO\nTWO_CHANNEL_AUDIO\nFILE "%s" 0' % fname.replace('"', '\\"'))
+	tocfile.flush()
+	print "Done."
+
+	if(raw_input("Proceed with write? [y/N] ") in ('y', 'Y')):
+		subprocess.call(('cdrdao', 'write', '--eject', '-n', '-v', '1', tocfile.name))
+	else:
+		print "As you wish."
+
+sys.stdout.write("Cleaning up temp files... ")
+for fname in tmp_filenames:
+	os.unlink(fname)
+print "Done.\nEnjoy your shits."
+

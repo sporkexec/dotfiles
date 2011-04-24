@@ -15,8 +15,6 @@ setopt append_history
 setopt extended_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
-setopt correct # not sure about this yet
-setopt correct_all # easily fooled by mkdir, etc.
 setopt interactive_comments
 setopt norm_star_silent
 setopt rm_star_wait # 10s is a bit long, though. ^C to bypass.
@@ -27,14 +25,14 @@ setopt prompt_subst
 setopt c_bases
 #setopt function_argzero # sounds good but not sure
 
-# enable color support of ls and also add handy aliases
+# colors
 eval "`dircolors -b`"
 alias ls='ls --color=auto'
-
-# grep variants
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
+alias diff=colordiff
+alias less='less -R' # allow color/terminal escapes in less
 
 # the "79 column window is too narrow" shit has been driving me crazy
 alias w='w|cat'
@@ -45,10 +43,6 @@ export VISUAL=vim
 export EDITOR=vim
 
 export BROWSER=chromium
-
-# pretty diff output
-alias diff=colordiff
-alias less='less -R'
 
 remotewebroot='/home/howcoo5/public_html'
 alias lhg="ssh -qt live hg -R $remotewebroot"

@@ -25,6 +25,10 @@ setopt prompt_subst
 setopt c_bases
 #setopt function_argzero # sounds good but not sure
 
+alias -g ...='../..'
+alias -g ....='../../..'
+alias -g .....='../../../..'
+
 # colors
 eval "`dircolors -b`"
 alias ls='ls --color=auto'

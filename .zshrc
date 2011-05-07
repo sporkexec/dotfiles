@@ -36,7 +36,12 @@ alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff=colordiff
-alias less='less -R' # allow color/terminal escapes in less
+
+alias less='less -FRSX'
+# F = exit on small files
+# R = allow color/terminal escapes
+# S = don't wrap lines
+# X = don't fuck around with the terminal, eg. -F is weird without it
 
 # the "79 column window is too narrow" shit has been driving me crazy
 alias w='w|cat'

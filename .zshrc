@@ -15,8 +15,6 @@ setopt append_history
 setopt extended_history
 setopt hist_ignore_dups
 setopt hist_ignore_space
-setopt correct # not sure about this yet
-setopt correct_all # easily fooled by mkdir, etc.
 setopt interactive_comments
 setopt norm_star_silent
 setopt rm_star_wait # 10s is a bit long, though. ^C to bypass.

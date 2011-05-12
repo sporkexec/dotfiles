@@ -1,5 +1,6 @@
 .Xauthority
 .adobe
+.atanks
 .bash_history
 .bittorrent
 .cache/
@@ -7,9 +8,12 @@
 .dbus
 .dmenu_cache
 .fluxbox
+.fontconfig
 .gconf
+.gconfd
 .gem
 .gimp
+.gnupg
 .kde4
 .lesshst
 .links

@@ -34,6 +34,7 @@
 .zsnes
 
 .*.swp
+*.pyc
 
 cronjobs/
 dev/

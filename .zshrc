@@ -81,7 +81,8 @@ defaultpush() {
 	hg -R /home/melvin/default push /home/melvin/lingerie -f -q
 }
 
-PATH="$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin"
+export PATH="$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin"
+export PYTHONPATH="$PYTHONPATH:$HOME/lib/python"
 
 function hg_prompt_info {
     hg prompt --angle-brackets $'%{\033[1;36m%}[<branch>-<rev>] <%{\033[1;34m%}<status|unknown>><%{\033[1;35m%}<status|modified>><%{\033[1;31m%}<update>>' 2>/dev/null

@@ -1,3 +1,14 @@
+autoload -U compinit
+compinit
+
+HISTFILE=~/.zsh_history
+HISTSIZE=2048
+SAVEHIST=2048
+setopt inc_append_history
+setopt extended_history
+setopt hist_ignore_dups
+setopt hist_ignore_space
+
 setopt vi # Gotta fix key bindings after this.
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[2~" quoted-insert # Ins
@@ -11,10 +22,6 @@ bindkey "\e[8~" end-of-line # End
 setopt auto_cd
 setopt noauto_name_dirs
 setopt extended_glob
-setopt append_history
-setopt extended_history
-setopt hist_ignore_dups
-setopt hist_ignore_space
 setopt interactive_comments
 setopt norm_star_silent
 setopt rm_star_wait # 10s is a bit long, though. ^C to bypass.
@@ -84,8 +91,15 @@ defaultpush() {
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin"
 export PYTHONPATH="$PYTHONPATH:$HOME/lib/python"
 
+autoload -U colors
+colors
+for COLOR in red blue green yellow cyan magenta white black; do
+	eval $COLOR='%{$fg[$COLOR]%}'
+	eval bold$COLOR='%{$fg_bold[$COLOR]%}'
+done
+
 function hg_prompt_info {
-    hg prompt --angle-brackets $'%{\033[1;36m%}[<branch>-<rev>] <%{\033[1;34m%}<status|unknown>><%{\033[1;35m%}<status|modified>><%{\033[1;31m%}<update>>' 2>/dev/null
+    hg prompt --angle-brackets "${boldcyan}[<branch>-<rev>] <$blue<status|unknown>><$magenta<status|modified>><$red<update>>" 2>/dev/null
 } 
 
-PROMPT=$'%{\033[0;34m%}%D{%T} %{\033[0;31m%}%n@%m:%{\033[1;32m%}%~%{\033[0;34m%} $(hg_prompt_info)\n%{\033[1;36m%}%#%{\033[0;0m%} '
+PROMPT=$'$blue%D{%T} $red%n@%m:$boldgreen%~ $(hg_prompt_info)\n$boldcyan%#$reset_color '

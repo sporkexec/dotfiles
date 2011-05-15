@@ -1,0 +1,2 @@
+#!/bin/sh
+ssh -o 'ProxyCommand /usr/bin/nc.openbsd -x 127.0.0.1:1080 %h %p' $@

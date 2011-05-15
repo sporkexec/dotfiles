@@ -1,3 +1,6 @@
+autoload -U compinit
+compinit
+
 setopt vi # Gotta fix key bindings after this.
 bindkey "\e[1~" beginning-of-line # Home
 bindkey "\e[2~" quoted-insert # Ins

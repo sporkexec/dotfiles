@@ -1,2 +1,2 @@
 #!/bin/sh
-exec /sbin/rc $2 $1
+exec /sbin/rc.d $2 $1

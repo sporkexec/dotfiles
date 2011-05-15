@@ -1,2 +1,0 @@
-#!/bin/bash
-amixer set Master $1% &> /dev/null

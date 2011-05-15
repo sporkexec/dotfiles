@@ -1,0 +1,5 @@
+#!/bin/bash
+# Shorthand to adjust the volume.
+# Realize that you can give an absolute volume (x), a percentage (x%), or a
+# relative adjustment (x+|x-|x%+|x%-), 'mute', 'unmute', or 'toggle'.
+amixer set Master $1 &> /dev/null

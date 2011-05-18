@@ -102,4 +102,4 @@ function hg_prompt_info {
     hg prompt --angle-brackets "${boldcyan}[<branch>-<rev>] <$blue<status|unknown>><$magenta<status|modified>><$red<update>>" 2>/dev/null
 } 
 
-PROMPT=$'$blue%D{%T} $red%n@%m:$boldgreen%~ $(hg_prompt_info)\n$boldcyan%#$reset_color '
+PROMPT=$'$blue%D{%T} $red%n@%m:$boldgreen%~ $(hg_prompt_info)\n$boldcyan%#%{$reset_color%} '

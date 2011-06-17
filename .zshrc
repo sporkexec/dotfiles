@@ -44,7 +44,7 @@ alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
 alias diff=colordiff
 
-alias less='less -FRSX'
+#alias less='less -FRSX'
 # F = exit on small files
 # R = allow color/terminal escapes
 # S = don't wrap lines
@@ -57,7 +57,7 @@ alias w='w|cat'
 alias vim='vim -p'
 export VISUAL=vim
 export EDITOR=vim
-
+export PAGER=less
 export BROWSER=chromium
 
 remotewebroot='/home/howcoo5/public_html'
@@ -88,8 +88,9 @@ defaultpush() {
 	hg -R /home/melvin/default push /home/melvin/lingerie -f -q
 }
 
-export PATH="$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin"
-export PYTHONPATH="$PYTHONPATH:$HOME/lib/python"
+# My stuff first because I like to override programs.
+export PATH="$HOME/bin:/usr/local/sbin:usr/local/bin:$PATH"
+export PYTHONPATH="$HOME/lib/python:$PYTHONPATH"
 
 autoload -U colors
 colors

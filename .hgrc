@@ -8,9 +8,9 @@ editor = vim
 
 [alias]
 br = branch
-slog = log --style=/home/jake/.hgtemplates/map-cmdline.slog
-nlog = log --style=/home/jake/.hgtemplates/map-cmdline.nlog
-clog = glog --style=/home/jake/.hgtemplates/map-cmdline.sglog
+slog = log --style=$HOME/.hgtemplates/map-cmdline.slog
+nlog = log --style=$HOME/.hgtemplates/map-cmdline.nlog
+clog = glog --style=$HOME/.hgtemplates/map-cmdline.sglog
 
 
 [extensions]
@@ -23,10 +23,11 @@ children =
 graphlog =
 churn =
 hgk =
-prompt=/home/jake/.hgprompt/prompt.py
+prompt=~/.hgprompt/prompt.py
 
 [pager]
-pager = LESS='FSRX' less
+; hg output is a special case for terminal escapes, although we may reverse this eventually.
+pager = VIMPAGER_COMMAND=AnsiEsc ~/bin/less
 attend = annotate, cat, diff, export, glog, log, qdiff, clog, slog, nlog
 
 [progress]

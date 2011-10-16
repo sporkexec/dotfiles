@@ -90,6 +90,7 @@ defaultpush() {
 
 # My stuff first because I like to override programs.
 export PATH="$HOME/bin:/usr/local/sbin:usr/local/bin:$PATH"
+export PYTHONPATH="$HOME/lib/python:$PYTHONPATH"
 
 autoload -U colors
 colors

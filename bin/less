@@ -50,7 +50,7 @@ case "$@" in
 	*) sed -e 's/.//g' "$@" > $filename ;;
 esac
 
-vim -R -c 'so ~/.vim/macros/less.vim' -c "${extra_cmd:-echo}" -c "${VIMPAGER_COMMAND:-echo}" ${filename:--} </dev/tty
+vim -R -c 'so ~/.vim/macros/less.vim' -c "${extra_cmd:-echo}" -c "${VIMPAGER_COMMAND:-echo}" "${filename:--}" </dev/tty
 
 
 rm -rf /tmp/vimpager_$$ 2>/dev/null

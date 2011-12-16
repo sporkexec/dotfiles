@@ -1,5 +1,5 @@
 URxvt*loginShell: true
-URxvt*termName: rxvt
+URxvt*termName: rxvt-256color
 
 URxvt*foreground: White
 URxvt*background: black

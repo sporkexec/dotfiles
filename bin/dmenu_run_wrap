@@ -1,0 +1,2 @@
+#!/bin/sh
+exec dmenu_run -fn "-*-dejavu sans mono-medium-r-*-*-14-*-*-*-*-*-*-*" -nb black -nf rgb:a0/a0/a0 -sb black -sf black

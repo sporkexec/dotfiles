@@ -5,4 +5,4 @@ xmodmap -e 'remove Lock = Caps_Lock'
 xmodmap -e 'keysym Caps_Lock = Control_L'
 xmodmap -e 'add Control = Control_L'
 
-exec /usr/bin/scrotwm
+exec /usr/bin/sscrotwm

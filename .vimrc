@@ -35,6 +35,9 @@ set incsearch
 " .less syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
 
+" Stop underlining <a> contents in HTML.
+highlight link htmlLink text
+
 " Pop a shell on suspend
 :map <C-Z> :shell<CR>
 

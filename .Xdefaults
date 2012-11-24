@@ -17,7 +17,7 @@ URxvt*tintColor: white
 URxvt*shading: 15
 
 URxvt*saveLines:8192
-URxvt*font: xft:DejaVuSansMono:pixelsize=14
+URxvt*font: xft:SourceCodePro:pixelsize=14
 
 # with this set to true, when an app sends a bell to the terminal, awesome hilights the appropriate tag(s) 
 URxvt*urgentOnBell: true

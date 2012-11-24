@@ -1,0 +1,6 @@
+# bind shift + vertical scroll to horizontal scroll events
+"xte 'mouseclick 6'"
+	shift + b:4
+"xte 'mouseclick 7'"
+	shift + b:5
+

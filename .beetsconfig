@@ -1,0 +1,9 @@
+[beets]
+library: ~/.beetslibrary
+import_copy: no
+import_write: no
+plugins: lyrics
+
+[lyrics]
+autofetch: no
+

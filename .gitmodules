@@ -1,0 +1,3 @@
+[submodule ".vim/bundle/linediff"]
+	path = .vim/bundle/linediff
+	url = git://github.com/AndrewRadev/linediff.vim.git

@@ -1,8 +1,13 @@
 #!/bin/sh
 
+# Use compose to combine keystrokes into more complex glyphs.
+# The defaults: /usr/share/X11/locale/en_US.UTF-8/Compose
+setxkbmap -option compose:rctrl
+
+# Remap caps lock to control.
+setxkbmap -option ctrl:nocaps
+
+# sscrotwm doesn't define a default pointer.
 xsetroot -cursor_name left_ptr
-xmodmap -e 'remove Lock = Caps_Lock'
-xmodmap -e 'keysym Caps_Lock = Control_L'
-xmodmap -e 'add Control = Control_L'
 
 exec /usr/bin/sscrotwm

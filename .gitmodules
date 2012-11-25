@@ -1,3 +1,6 @@
 [submodule ".vim/bundle/linediff"]
 	path = .vim/bundle/linediff
 	url = git://github.com/AndrewRadev/linediff.vim.git
+[submodule ".vim/bundle/supertab"]
+	path = .vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git

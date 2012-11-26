@@ -2,7 +2,8 @@
 
 # Use compose to combine keystrokes into more complex glyphs.
 # The defaults: /usr/share/X11/locale/en_US.UTF-8/Compose
-setxkbmap -option compose:rctrl
+# Other available options: /usr/share/X11/xkb/rules/base.lst
+setxkbmap -option compose:menu
 
 # Remap caps lock to control.
 setxkbmap -option ctrl:nocaps

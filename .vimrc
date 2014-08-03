@@ -15,6 +15,7 @@ set background=dark
 colorscheme base16-monokai
 let g:airline_theme='badwolf'
 let g:airline_powerline_fonts = 1
+let g:airline#extensions#tabline#enabled = 1
 set noshowmode
 
 " file completion

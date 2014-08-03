@@ -1,0 +1,119 @@
+directory: /mnt/mass_storage/music
+
+import:
+    #move: yes # switching to copy while doing flac import, to be safe.
+    copy: yes
+    log: ~/.config/beets/import.log
+    languages:
+        - en
+
+#musicbrainz:
+#    host: localhost:5000
+#    ratelimit: 100
+
+pluginpath:
+    - ~/src/beetsplug
+
+#plugins:chroma discogs mbsync ftintitle rewrite scrub the copyartifacts replaygain fetchart embedart convert
+plugins: chroma discogs mbsync ftintitle rewrite scrub the copyartifacts replaygain
+
+original_date: yes
+
+paths:
+    default: %the{$albumartist}/($year) $album/$track $title
+    singleton: Singles/%the{$artist}/$title
+    comp: Compilations/($year) $album/$track title
+    ext:log: $albumpath/album
+    ext:LOG: $albumpath/album
+    ext:cue: $albumpath/album
+    ext:CUE: $albumpath/album
+    ext:jpg: $albumpath/cover
+    ext:JPG: $albumpath/cover
+    ext:jpeg: $albumpath/cover
+    ext:JPEG: $albumpath/cover
+    ext:png: $albumpath/cover
+    ext:PNG: $albumpath/cover
+
+# Using a combination of replace and rewrite, it seems we can fix both metadata
+# and filenames to be how we like, although the documentation states that
+# neither of them change metadata. It's a feature, not a bug! \o/
+# '^(?!\(\d+\))(?!\d{1,2} ).*bad_string.*$'
+# Is our regexp to match things containing bad_string which don't start with a
+# year in parens (like an album folder) or one/two digits followed by a space
+# (like a track filename).
+replace:
+    '[\\/]': _
+    '^\.': _
+    '[\x00-\x1f]': _
+    '[<>:"\?\*\|]': _
+    '\.$': _
+    '\s+$': ''
+    '^\s+': ''
+    '^(?!\(\d+\))(?!\d{1,2} ).*andrew bird.*$': Andrew Bird
+    '^(?!\(\d+\))(?!\d{1,2} ).*Wesley Willis.*$': Wesley Willis
+    '^(?!\(\d+\))(?!\d{1,2} ).*Bob Marley.*$': Bob Marley
+    '^Chicago.*': Chicago
+    '^(?!\(\d+\))(?!\d{1,2} ).*Ian Anderson.*$': Jethro Tull
+    '^(?!\(\d+\))(?!\d{1,2} ).*Jimi Hendrix.*$': Jimi Hendrix
+    '^(?!\(\d+\))(?!\d{1,2} ).*Merle Haggard.*$': Merle Haggard
+    '^(?!\(\d+\))(?!\d{1,2} ).*The Strangers.*$': Merle Haggard
+    '^(?!\(\d+\))(?!\d{1,2} ).*Sublime.*$': Sublime
+    '^(?!\(\d+\))(?!\d{1,2} ).*Neil Young.*$': Neil Young
+    '^(?!\(\d+\))(?!\d{1,2} ).*Stills-Young.*$': Neil Young
+    '^(?!\(\d+\))(?!\d{1,2} ).*Crosby, Stills.*$': Neil Young
+    '^(?!\(\d+\))(?!\d{1,2} ).*Crazy Horse.*$': Neil Young
+    '^(?!\(\d+\))(?!\d{1,2} ).*John Fogerty.*$': Creedence Clearwater Revival
+    '^(?!\(\d+\))(?!\d{1,2} ).*Jim Morrison.*$': The Doors
+    '^(?!\(\d+\))(?!\d{1,2} ).*シートベルツ.*$': The Seatbelts
+    '^(?!\(\d+\))(?!\d{1,2} ).*supercell.*$': Vocaloid
+    '^(?!\(\d+\))(?!\d{1,2} ).*初音ミク.*$': Vocaloid
+    '^(?!\(\d+\))(?!\d{1,2} ).*Miku Hatsune.*$': Vocaloid
+    '^(?!\(\d+\))(?!\d{1,2} ).*Alstroemeria Records.*$': Vocaloid
+    '^(?!\(\d+\))(?!\d{1,2} ).*Len Kagamine.*$': Vocaloid
+    '^(?!\(\d+\))(?!\d{1,2} ).*livetune.*$': Vocaloid
+    '^(?!\(\d+\))(?!\d{1,2} ).*wynton marsalis.*$': Winton Marsalis
+
+rewrite:
+    artist .*andrew bird.*: Andrew Bird
+    artist .*wesley willis.*: Wesley Willis
+    artist .*bob marley.*: Bob Marley
+    artist chicago.*: Chicago
+    artist .*ian anderson.*: Jethro Tull
+    artist .*jimi hendrix.*: Jimi Hendrix
+    artist .*merle haggard.*: Merle Haggard
+    artist .*the strangers.*: Merle Haggard
+    artist .*sublime.*: Sublime
+    artist .*neil young.*: Neil Young
+    artist .*stills-young.*: Neil Young
+    artist .*crosby, stills.*: Neil Young
+    artist .*crazy horse.*: Neil Young
+    artist .*john fogerty.*: Creedence Clearwater Revival
+    artist .*jim morrison.*: The Doors
+    artist .*シートベルツ.*: The Seatbelts
+    artist .*supercell.*: Vocaloid
+    artist .*初音ミク.*: Vocaloid
+    artist .*miku hatsune.*: Vocaloid
+    artist .*Alstroemeria Records.*: Vocaloid
+    artist .*Len Kagamine.*: Vocaloid
+    artist .*livetune.*: Vocaloid
+    artist .*wynton marsalis.*: Wynton Marsalis
+
+lyrics:
+    auto: no
+
+ftintitle:
+    drop: yes
+
+copyartifacts:
+    extensions: .cue .CUE .log .LOG .jpg .JPG .jpeg .JPEG .png .PNG
+    print_ignored: yes
+
+replaygain:
+    backend: gstreamer
+    overwrite: yes
+    noclip: yes
+    apply: yes
+
+fetchart:
+    auto: no
+

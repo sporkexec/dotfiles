@@ -1,7 +1,3 @@
-[trusted]
-users = root, jake, rmendoza
-groups = root, webdev
-
 [ui]
 username = Jacob Courtneay <jacob@sporkexec.com>
 editor = vim
@@ -23,7 +19,6 @@ children =
 graphlog =
 churn =
 hgk =
-prompt=~/.hgprompt/prompt.py
 
 [pager]
 ; hg output is a special case for terminal escapes, although we may reverse this eventually.
@@ -42,6 +37,3 @@ status.removed = red bold
 status.deleted = cyan bold
 status.unknown = blue bold
 status.ignored = black bold
-
-[paths]
-live = ssh://howcool.com//var/www/html

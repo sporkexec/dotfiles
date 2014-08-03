@@ -1,9 +1,0 @@
-#!/bin/sh
-if ((iwconfig | grep wlan0 > /dev/null))
-then sudo rmmod ath5k
-clear
-echo "Wifi going off!"
-else sudo modprobe ath5k
-clear
-echo "Wifi turning on!"
-fi

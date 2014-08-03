@@ -1,15 +1,14 @@
 .Xauthority
 .adobe
+.aptitude
 .atanks
 .bash_history
 .cache
-.config
 .dbus
 .dmenu_cache
 .fceux
 .fltk
 .fluxbox
-.fontconfig
 .gconf
 .gconfd
 .gem
@@ -21,11 +20,11 @@
 .kde4
 .lesshst
 .links
+.links2
 .local/share
 .macromedia
 .minecraft*
 .mozilla
-.mpd
 .ncmpcpp/artists
 .ncmpcpp/error.log
 .pki
@@ -37,6 +36,7 @@
 .viminfo
 .VirtualBox
 .wicd/WHEREAREMYFILES
+.xsession-errors
 .zsnes
 .zcompdump
 .zsh_history
@@ -44,6 +44,8 @@
 .*.swp
 *.pyc
 
-cronjobs/
 dev/
+downloads/
 Downloads/
+
+.config/beets/library.db

@@ -1,2 +1,0 @@
-#!/bin/sh
-$BROWSER --proxy-server="socks5://localhost"

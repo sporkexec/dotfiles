@@ -1,4 +1,6 @@
 call pathogen#infect()
+set nocompatible
+set laststatus=2
 
 " indentation
 set tabstop=4
@@ -9,7 +11,11 @@ set noexpandtab
 " visual
 set guifont=Monospace\ 11
 syntax on
-colorscheme desert
+set background=dark
+colorscheme base16-monokai
+let g:airline_theme='badwolf'
+let g:airline_powerline_fonts = 1
+set noshowmode
 
 " file completion
 set wildmode=longest,list,full

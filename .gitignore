@@ -13,6 +13,7 @@
 .gconfd
 .gem
 .gimp*
+.gnome
 .gnupg
 .gstreamer*
 .gvba
@@ -25,11 +26,14 @@
 .macromedia
 .minecraft*
 .mozilla
-.ncmpcpp/artists
-.ncmpcpp/error.log
+.mysql
+.nv
 .pki
 .pulse*
+.python-eggs
+.python_history
 .ssh
+.subversion
 .thunderbird
 .thumbnails
 .vim/.netrwhist
@@ -48,4 +52,20 @@ dev/
 downloads/
 Downloads/
 
+.config/Trolltech.conf
+.config/VirtualBox
+.config/autostart
 .config/beets/library.db
+.config/beets/import.log
+.config/beets/state.pickle
+.config/deluge
+.config/easytag
+.config/google-chrome
+.config/google-chrome-unstable
+.config/google-googletalkplugin
+.config/gtk-2.0
+.config/hexchat
+.config/menus
+.config/pulse
+.config/unity3d
+

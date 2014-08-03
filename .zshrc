@@ -60,7 +60,7 @@ alias -g ....='../../..'
 alias -g .....='../../../..'
 
 # colors
-. ~/scripts/base16-monokai.dark.sh
+. ~/bin/base16-monokai.dark.sh
 eval "`dircolors -b ~/.dir_colors`"
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'

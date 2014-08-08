@@ -27,6 +27,7 @@
 .minecraft*
 .mozilla
 .mysql
+.npm
 .nv
 .pki
 .pulse*

@@ -15,7 +15,7 @@ pluginpath:
     - ~/src/beetsplug
 
 #plugins:chroma discogs mbsync ftintitle rewrite scrub the copyartifacts replaygain fetchart embedart convert
-plugins: chroma discogs mbsync ftintitle rewrite scrub the copyartifacts replaygain
+plugins: chroma discogs mbsync ftintitle rewrite scrub the copyartifacts fetchart embedart convert
 
 original_date: yes
 
@@ -116,4 +116,20 @@ replaygain:
 
 fetchart:
     auto: no
+
+embedart:
+    auto: no
+
+convert:
+    embded: yes
+    format: V0
+    #dest: /mnt/mass_storage/music_$format
+    # beet convert -f V3 -d /mnt/mass_storage/music_V3
+    formats:
+        V0:
+            command: ffmpeg -i $source -y -aq 0 $dest
+            extension: mp3
+        V3:
+            command: ffmpeg -i $source -y -aq 3 $dest
+            extension: mp3
 

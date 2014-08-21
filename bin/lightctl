@@ -1,0 +1,10 @@
+#!/bin/sh
+preset="$1"
+time="$2"
+
+if [ "$time" != "" ]; then
+	time="?transition=$time"
+fi
+
+wget --post-data='' "http://localhost:10101/lights/bedroom/${preset}${time}" -q -O -
+

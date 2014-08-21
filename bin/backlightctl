@@ -1,0 +1,5 @@
+#!/bin/sh
+system="$1" # dpms/redshfit
+command="$2" # on/off
+wget --post-data='' "http://localhost:10101/tricluck/${system}/${command}" -q -O -
+

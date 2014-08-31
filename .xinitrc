@@ -28,7 +28,7 @@ numlockx
 xrdb ~/.Xresources
 xrdb -merge ~/.Xresources_colors
 
-~/bin/dpms_http.py &
+~/bin/automation_daemon.py &
 exec sscrotwm
 
 #sxhkd &

@@ -17,18 +17,17 @@ xset dpms 0 0 0
 xset -dpms
 xset s off
 
+# Turn on numlock
 numlockx
 
-# Tap on the trackpoint to click
-#echo 1 | sudo tee /sys/devices/platform/i8042/serio1/serio2/press_to_select > /dev/null
-
-# It's pretty obvious the machine's running, thanks.
-#echo 0 | sudo tee /sys/bus/platform/devices/thinkpad_acpi/leds/tpacpi::power/brightness > /dev/null
-
+# Terminal settings
 xrdb ~/.Xresources
 xrdb -merge ~/.Xresources_colors
 
+#FIXME Move to a user systemd unit, maybe?
 ~/bin/automation_daemon.py &
+
+# Start WM
 exec sscrotwm
 
 #sxhkd &

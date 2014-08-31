@@ -1,5 +1,7 @@
 .Xauthority
 .adobe
+.android
+.AndroidStudioBeta
 .aptitude
 .atanks
 .bash_history
@@ -15,6 +17,7 @@
 .gimp*
 .gnome
 .gnupg
+.gradle
 .gstreamer*
 .gvba
 .java
@@ -27,8 +30,11 @@
 .minecraft*
 .mozilla
 .mysql
+.ncmpcpp
 .npm
 .nv
+.nvidia-settings-rc
+.pip
 .pki
 .pulse*
 .python-eggs
@@ -68,5 +74,7 @@ Downloads/
 .config/hexchat
 .config/menus
 .config/pulse
+.config/teamviewer9
 .config/unity3d
 
+src/

@@ -1,4 +1,9 @@
-Xft.rgba: none
 xterm*faceName: Source Code Pro for Powerline:size=10:antialias=true
 xterm*borderWidth: 0
 xterm*termName: xterm-256color
+
+Xft.rgba:      rgb
+Xft.hinting:   true
+Xft.hintstyle: hintfull
+Xft.antialias: true
+Xft.lcdfilter: lcdlight

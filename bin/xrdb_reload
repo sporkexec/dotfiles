@@ -1,0 +1,8 @@
+#!/bin/sh
+# Wipe config and load new contents
+xrdb -load ~/.Xresources
+
+# Merge in other files
+for file in ~/.Xresources_*; do
+	xrdb -merge "$file"
+done

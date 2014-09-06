@@ -17,6 +17,10 @@ xset dpms 0 0 0
 xset -dpms
 xset s off
 
+# Mouse acceleration for M570
+xinput --set-prop 13 'Device Accel Velocity Scaling' 5
+xset mouse 3 6
+
 # Turn on numlock
 numlockx
 

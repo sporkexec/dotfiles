@@ -14,3 +14,6 @@ URxvt.scrollBar: off
 URxvt.letterSpace: -1
 URxvt*loginShell: true
 !URxvt.internalBorder: 0
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: google-chrome-incognito
+URxvt.matcher.button: 1

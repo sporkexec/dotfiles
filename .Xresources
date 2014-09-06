@@ -3,7 +3,14 @@ xterm*borderWidth: 0
 xterm*termName: xterm-256color
 
 Xft.rgba:      rgb
-Xft.hinting:   true
-Xft.hintstyle: hintfull
+Xft.hintstyle: hintslight
 Xft.antialias: true
-Xft.lcdfilter: lcdlight
+Xft.lcdfilter: lcddefault
+
+URxvt*termName: xterm-256color
+URxvt.font: xft:Source Code Pro for Powerline:size=10
+URxvt*xftAntialias: true
+URxvt.scrollBar: off
+URxvt.letterSpace: -1
+URxvt*loginShell: true
+!URxvt.internalBorder: 0

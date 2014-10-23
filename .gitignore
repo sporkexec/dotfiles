@@ -30,6 +30,7 @@
 .minecraft*
 .mozilla
 .mysql
+.mysql_history
 .ncmpcpp
 .npm
 .nv
@@ -40,24 +41,21 @@
 .python-eggs
 .python_history
 .ssh
+.steam*
+.sqlite_history
 .subversion
 .thunderbird
 .thumbnails
 .vim/.netrwhist
 .viminfo
 .VirtualBox
+.weechat
 .wicd/WHEREAREMYFILES
+.xsel.log
 .xsession-errors
 .zsnes
 .zcompdump
 .zsh_history
-
-.*.swp
-*.pyc
-
-dev/
-downloads/
-Downloads/
 
 .config/Trolltech.conf
 .config/VirtualBox
@@ -77,4 +75,12 @@ Downloads/
 .config/teamviewer9
 .config/unity3d
 
+.*.swp
+*.pyc
+
+Desktop/
+dev/
+downloads/
+Downloads/
+screenshots/
 src/

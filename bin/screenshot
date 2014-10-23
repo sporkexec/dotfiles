@@ -11,3 +11,4 @@ elif [ "$1" = "select" ]; then
 fi
 
 imgur "$MAIM_OUTPUT"
+notify-send -u low 'Upload complete' "$(xsel -o)"

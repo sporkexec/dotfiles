@@ -1,19 +1,36 @@
 #!/bin/sh
 
-bspc config border_width        2
-bspc config window_gap         12
+# Colors
+bspc config focused_border_color "#1AB6EA"
+bspc config active_border_color  "#CCCCCC"
+bspc config normal_border_color  "#222222"
+bspc config presel_border_color  "#1AB6EA"
+bspc config urgent_border_color  "#FFE77A"
 
-bspc config split_ratio         0.52
-bspc config borderless_monocle  true
-bspc config gapless_monocle     true
-bspc config focus_by_distance   true
+# Booleans
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
+bspc config pointer_follows_monitor false
+bspc config auto_cancel             true
+#bspc config focus_by_distance      true
 
-bspc monitor DVI-I-1 -d I II III IV
-bspc monitor HDMI-0 -d V VI VII
-bspc monitor DVI-D-0 -d VIII IX X
+# Misc config
+bspc config border_width 1
+bspc config window_gap   0
+bspc config split_ratio  0.52
 
-bspc rule -a Gimp desktop=^8 follow=on floating=on
-bspc rule -a Chromium desktop=^2
-bspc rule -a mplayer2 floating=on
-bspc rule -a Kupfer.py focus=on
-bspc rule -a Screenkey manage=off
+# Rename monitors
+bspc monitor HDMI1 -n L
+bspc monitor HDMI2 -n C
+bspc monitor VGA1  -n R
+
+# Assign desktops
+bspc monitor L -d L1 L2 L3 L4 L5 L6 L7 L8 L9 L0
+bspc monitor C -d C1 C2 C3 C4 C5 C6 C7 C8 C9 C0
+bspc monitor R -d R1 R2 R3 R4 R5 R6 R7 R8 R9 R0
+
+# Reload workspace data on restart
+#if [ -e "$BSPWM_TREE" ] ; then
+#	bspc restore -T "$BSPWM_TREE" -H "$BSPWM_HISTORY" -S "$BSPWM_STACK"
+#	rm "$BSPWM_TREE" "$BSPWM_HISTORY" "$BSPWM_STACK"
+#fi

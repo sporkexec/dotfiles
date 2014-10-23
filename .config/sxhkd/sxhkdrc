@@ -1,19 +1,101 @@
-#
-# bspwm hotkeys
-#
+### Navigation
+# Focus or swap window in given direction
+alt + {_,shift + }{h,j,k,l}
+	bspc window -{f,s} {left,down,up,right}
 
-super + alt + Escape
-	bspc quit
+# Change focus to or move window to given monitor+desktop (LCR 0-9)
+{_, shift + } {ctrl,super,alt} + {0-9}
+	bspc {desktop -f,window -d} {L,C,R}{0-9}
 
-super + w
+# Jump to next/prev occupied desktop on the given monitor
+{ctrl,super,alt} + {Left,Right}
+	bspc monitor -f {L,C,R}; bspc desktop -f {prev,next}.occupied
+
+# Move window to the next/prev desktop on the given monitor
+shift + {ctrl,super,alt} + {Left,Right}
+	bspc monitor -f {L,C,R}; bspc window -d {prev,next}
+
+
+### Mouse controls
+# Click to focus
+~button1
+	bspc pointer -g focus
+
+# Move windows around with left click
+alt + button1
+	bspc pointer -g move
+
+# Resize windows with right click
+alt + button3
+	bspc pointer -g resize_corner
+
+# Report movement (all events would be reported without modifier)
+alt + !button{1-3}
+	bspc pointer -t %i %i
+
+# Cancel mouse event
+alt + @button{1-3}
+	bspc pointer -u
+
+
+### Basic commands
+# Quit, non-zero status is important to break loop
+control + alt + shift + q
+	bspc quit 1
+
+# Reload configs
+alt + q
+	pkill -USR1 -x sxhkd
+
+#pkill -USR1 -x sxhkd;\
+#bspc query -T > "$BSPWM_TREE";\
+#bspc query -H > "$BSPWM_HISTORY";\
+#bspc quit 0
+
+# Close window
+alt + x
 	bspc window -c
 
-super + t
+# Kill window
+alt + shift + x
+	bspc window -k
+# Terminal emulator
+alt + shift + Return
+	urxvt
+
+# Launcher
+alt + p
+	dmenu_run_wrap
+
+
+
+
+### MPD commands
+ctrl + KP_Insert
+	mpc toggle
+ctrl + KP_Begin
+	mpc stop
+ctrl + KP_Left
+	mpc seek -1%
+ctrl + KP_Right
+	mpc seek +1%
+ctrl + KP_End
+	mpc prev
+ctrl + KP_Next
+	mpc next
+
+
+### Uncomfortable things
+# Toggle monocle/tiled XXX
+alt + t
 	bspc desktop -l next
 
-super + b
+# Balance area of windows
+alt + shift + b
 	bspc desktop -B
 
+
+### Really uncomfortable things
 super + {s,f}
 	bspc window -t {floating,fullscreen}
 
@@ -33,9 +115,6 @@ super + y
 
 super + m
 	bspc window -s biggest
-
-super + {_,shift + }{h,j,k,l}
-	bspc window -{f,s} {left,down,up,right}
 
 super + {_,shift + }c
 	bspc window -f {next,prev}
@@ -58,34 +137,3 @@ super + alt + {h,j,k,l}
 super + alt + shift + {h,j,k,l}
 	bspc window -e {right -10,up +10,down -10,left +10}
 
-super + ctrl + {1-9}
-	bspc window -r 0.{1-9}
-
-super + {_,shift + }{1-9,0}
-	bspc {desktop -f,window -d} ^{1-9,10}
-
-~button1
-	bspc pointer -g focus
-
-super + button{1-3}
-	bspc pointer -g {move,resize_side,resize_corner}
-
-super + !button{1-3}
-	bspc pointer -t %i %i
-
-super + @button{1-3}
-	bspc pointer -u
-
-#
-# wm independent hotkeys
-#
-
-super + Return
-	xterm
-
-super + space
-	dmenu_run
-
-# make sxhkd reload its configuration files:
-super + Escape
-	pkill -USR1 -x sxhkd

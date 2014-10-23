@@ -68,6 +68,11 @@ export BROWSER=google-chrome-unstable
 export PATH="$HOME/bin:/usr/local/sbin:usr/local/bin:$PATH"
 export PYTHONPATH="$HOME/lib/python:$PYTHONPATH"
 
+# Let bspwm reuse window arrangement on restart
+export BSPWM_TREE=/tmp/bspwm.tree
+export BSPWM_HISTORY=/tmp/bspwm.history
+export BSPWM_STACK=/tmp/bspwm.stack
+
 autoload -U colors
 colors
 for COLOR in red blue green yellow cyan magenta white black; do

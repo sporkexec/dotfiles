@@ -1,4 +1,7 @@
 #!/bin/sh
+# Arrange screens properly
+xrandr --output HDMI2 --right-of HDMI1
+xrandr --output VGA1  --right-of HDMI2
 
 # Use compose to combine keystrokes into more complex glyphs.
 # The defaults: /usr/share/X11/locale/en_US.UTF-8/Compose
@@ -32,7 +35,6 @@ xrdb -merge ~/.Xresources_colors
 ~/bin/automation_daemon.py &
 
 # Start WM
-exec sscrotwm
-
-#sxhkd &
-#exec bspwm
+#exec sscrotwm
+sxhkd &
+exec ~/bin/wm

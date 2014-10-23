@@ -1,0 +1,13 @@
+#!/bin/sh
+MAIM_OPTS='--hidecursor -c 0.102,0.714,0.918 -b 1'
+MAIM_OUTPUT=~/screenshots/$(date +%F-%T).png
+
+if [ "$1" = "full" ]; then
+	maim $MAIM_OPTS "$MAIM_OUTPUT"
+elif [ "$1" = "window" ]; then
+	maim $MAIM_OPTS -i $(xdotool getactivewindow) "$MAIM_OUTPUT"
+elif [ "$1" = "select" ]; then
+	maim $MAIM_OPTS -s "$MAIM_OUTPUT"
+fi
+
+imgur "$MAIM_OUTPUT"

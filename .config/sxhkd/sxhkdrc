@@ -85,6 +85,17 @@ ctrl + KP_Next
 	mpc next
 
 
+# Default to manual selection
+Print
+	screenshot select
+# Windows key grabs the current window
+super + Print
+	screenshot window
+# Entire screen (all outputs)
+alt + Print
+	screenshot full
+
+
 ### Uncomfortable things
 # Toggle monocle/tiled XXX
 alt + t

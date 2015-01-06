@@ -44,6 +44,9 @@ set incsearch
 " .less syntax highlighting
 au BufNewFile,BufRead *.less set filetype=less
 
+" .jsx
+let g:syntastic_javascript_checkers = ['jsxhint']
+
 " Stop underlining <a> contents in HTML.
 highlight link htmlLink text
 

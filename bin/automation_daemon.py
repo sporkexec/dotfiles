@@ -17,7 +17,11 @@ def hue_init(hue_username):
 	import urllib2
 	import json
 	hue_info = urllib2.urlopen('https://www.meethue.com/api/nupnp').read()
-	hue_ip = json.loads(hue_info)[0]['internalipaddress']
+	try:
+		hue_ip = json.loads(hue_info)[0]['internalipaddress']
+	except IndexError:
+		# Bridge has had trouble pinging API due to ISP outage
+		hue_ip = '192.168.1.70'
 	return Bridge(hue_ip, hue_username)
 
 hue_state = {

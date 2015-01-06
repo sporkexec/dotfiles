@@ -65,7 +65,7 @@ export PAGER=less
 export BROWSER=google-chrome-unstable
 
 # My stuff first because I like to override programs.
-export PATH="$HOME/bin:/usr/local/sbin:usr/local/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/sbin:/usr/local/bin:$PATH"
 export PYTHONPATH="$HOME/lib/python:$PYTHONPATH"
 
 # Let bspwm reuse window arrangement on restart

@@ -36,6 +36,7 @@ imap <right> <nop>
 hi TabLine ctermfg=White ctermbg=Black cterm=NONE
 hi TabLineFill ctermfg=Black ctermbg=Black cterm=NONE
 hi TabLineSel ctermfg=Black ctermbg=White cterm=NONE
+set tabpagemax=100
 
 " search
 set hlsearch

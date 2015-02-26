@@ -148,6 +148,7 @@ class LocalBacklights:
 			os.system('DISPLAY=:0 redshift &')
 		elif path == 'redshift/off':
 			os.system('pkill redshift')
+			os.system('redshift_reset') # Sometimes things weren't properly reset, especially with multiple instances running
 
 urls = (
 	'/lights/bedroom/(.*)', 'BedroomHue',

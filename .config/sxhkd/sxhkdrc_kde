@@ -1,0 +1,36 @@
+# Reload configs
+alt + q
+	pkill -USR1 -x sxhkd
+
+# Terminal emulator
+alt + shift + Return
+	urxvt
+
+# Launcher
+alt + p
+	dmenu_run_wrap
+
+### MPD commands
+ctrl + KP_Insert
+	mpc toggle
+ctrl + KP_Begin
+	mpc stop
+ctrl + KP_Left
+	mpc seek -1%
+ctrl + KP_Right
+	mpc seek +1%
+ctrl + KP_End
+	mpc prev
+ctrl + KP_Next
+	mpc next
+
+# Default to manual selection
+Print
+	screenshot select
+# Windows key grabs the current window
+super + Print
+	screenshot window
+# Entire screen (all outputs)
+alt + Print
+	screenshot full
+

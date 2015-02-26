@@ -36,5 +36,7 @@ xrdb -merge ~/.Xresources_colors
 
 # Start WM
 #exec sscrotwm
-sxhkd &
-exec ~/bin/wm
+#sxhkd &
+#exec ~/bin/wm
+sxhkd -c ~/.config/sxhkd/sxhkdrc_kde &
+exec startkde

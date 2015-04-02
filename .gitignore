@@ -125,5 +125,6 @@ Downloads/
 screenshots/
 src/
 
-.vim/sensitive.vim
+.vim/dbext_sql_history.txt
 .vim/bundle
+.vim/sensitive.vim

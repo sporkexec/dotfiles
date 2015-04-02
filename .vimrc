@@ -2,6 +2,9 @@ call pathogen#infect()
 set nocompatible
 set laststatus=2
 
+" things to keep out of github
+source ~/.vim/sensitive.vim
+
 " indentation
 set tabstop=4
 set softtabstop=0
@@ -52,8 +55,8 @@ let g:syntastic_javascript_checkers = ['jsxhint']
 highlight link htmlLink text
 
 " Pop a shell on suspend
-:map <C-Z> :shell<CR>
+map <C-Z> :shell<CR>
 
 " I can probably remember :help...
-:map <F1> <nop>
-:imap <F1> <nop>
+map <F1> <nop>
+imap <F1> <nop>

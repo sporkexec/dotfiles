@@ -1,9 +1,28 @@
-call pathogen#infect()
+" prep for vundle
 set nocompatible
-set laststatus=2
+filetype off
+
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+" plugins, vundle is mandatory
+Plugin 'gmarik/Vundle.vim'
+Plugin 'bling/vim-airline'
+Plugin 'AndrewRadev/linediff.vim'
+Plugin 'ervandew/supertab'
+Plugin 'scrooloose/syntastic'
+Plugin 'dbext.vim'
+
+" all vundle plugin calls must be above
+call vundle#end()
+filetype plugin indent on
 
 " things to keep out of github
 source ~/.vim/sensitive.vim
+
+" makes airline happy IIRC
+set laststatus=2
 
 " indentation
 set tabstop=4

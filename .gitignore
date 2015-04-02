@@ -126,3 +126,4 @@ screenshots/
 src/
 
 .vim/sensitive.vim
+.vim/bundle

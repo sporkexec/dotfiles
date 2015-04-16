@@ -15,6 +15,7 @@ Plugin 'luochen1990/rainbow'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'scrooloose/syntastic'
 Plugin 'sjl/gundo.vim'
+Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-repeat'
 Plugin 'dbext.vim'
@@ -104,6 +105,14 @@ nnoremap / /\v
 vnoremap / /\v
 " strip trailing whitespace
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<cr>
+" misc plugins
 nnoremap <leader><tab> :Scratch<cr>
 nnoremap <leader>R :RainbowToggle<cr>
 nnoremap <leader>u :GundoToggle<cr>
+" git/fugitive
+nnoremap <Leader>gs :Gstatus<CR>
+nnoremap <Leader>gd :Gdiff<CR>
+nnoremap <Leader>gb :Gblame<CR>
+nnoremap <Leader>gl :Glog<CR>
+nnoremap <Leader>ga :Git add %:p<CR><CR>
+

@@ -1,0 +1,5 @@
+#!/bin/sh
+# Bang to invert exit status such that 0 = good, 1 = errors
+! (for f in *.php; do
+	php -l "$f"
+done) | grep -v '^No syntax errors detected in '

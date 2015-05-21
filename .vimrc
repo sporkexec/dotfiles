@@ -22,6 +22,7 @@ Plugin 'dbext.vim'
 Plugin 'AnsiEsc.vim'
 Plugin 'vim-less'
 Plugin 'chriskempson/base16-vim'
+Plugin 'ap/vim-css-color'
 Plugin 'scratch.vim'
 Plugin 'vim-indent-object'
 

@@ -138,7 +138,7 @@ class BedroomHue:
 		self._set_light(self.lights_all, command, transitiontime)
 		return 'Success'
 
-class LocalBacklights:
+class Tricluck:
 	def POST(self, path):
 		if path == 'dpms/on':
 			os.system('DISPLAY=:0 xset dpms force on')
@@ -149,10 +149,12 @@ class LocalBacklights:
 		elif path == 'redshift/off':
 			os.system('pkill redshift')
 			os.system('redshift_reset') # Sometimes things weren't properly reset, especially with multiple instances running
+		elif path == 'suspend':
+			os.system('sudo systemctl suspend')
 
 urls = (
 	'/lights/bedroom/(.*)', 'BedroomHue',
-	'/tricluck/(.*)', 'LocalBacklights',
+	'/tricluck/(.*)', 'Tricluck',
 )
 app = ApplicationCustomPort(urls, locals())
 

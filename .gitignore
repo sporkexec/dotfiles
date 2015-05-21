@@ -60,6 +60,7 @@
 .config/Trolltech.conf
 .config/VirtualBox
 .config/autostart
+.config/beets/discogs_token.json
 .config/beets/library.db
 .config/beets/import.log
 .config/beets/state.pickle

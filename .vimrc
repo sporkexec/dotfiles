@@ -43,6 +43,8 @@ let base16colorspace=256
 " security
 source ~/.vim/sensitive.vim
 set modelines=0
+set dir=~/.vim/swp//
+set backupdir=~/.vim/backup//
 
 " misc UI tweaks
 set tabpagemax=100 " tabedit limit

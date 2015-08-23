@@ -67,6 +67,7 @@ set showcmd
 set ttyfast
 highlight link htmlLink text |" Stop underlining <a> contents in HTML.
 colorscheme base16-monokai
+set backspace=indent,eol,start
 
 " search/file completion
 set wildmode=longest,list,full

@@ -152,9 +152,22 @@ class Tricluck:
 		elif path == 'suspend':
 			os.system('sudo systemctl suspend')
 
+class TricluckWin:
+	def POST(self, path):
+		if path == 'dpms/on':
+			os.system('dpms_on')
+		elif path == 'dpms/off':
+			os.system('dpms_off')
+		elif path == 'redshift/on':
+			pass # FIXME is f.lux scriptable?
+		elif path == 'redshift/off':
+			pass # FIXME is f.lux scriptable?
+		elif path == 'suspend':
+			os.system('rundll32.exe powrprof.dll,SetSuspendState 0,1,0')
+
 urls = (
 	'/lights/bedroom/(.*)', 'BedroomHue',
-	'/tricluck/(.*)', 'Tricluck',
+	'/tricluck/(.*)', 'TricluckWin',
 )
 app = ApplicationCustomPort(urls, locals())
 

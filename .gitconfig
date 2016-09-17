@@ -5,3 +5,5 @@
 	ui = true
 [core]
 	pager = VIMPAGER_COMMAND=AnsiEsc ~/bin/less
+[push]
+	default = simple

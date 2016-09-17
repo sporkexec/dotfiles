@@ -1,3 +1,5 @@
+fpath=(/usr/local/share/zsh-completions $fpath)
+
 autoload -U compinit
 compinit
 
@@ -41,12 +43,30 @@ alias -g .....='../../../..'
 
 # colors
 . ~/bin/base16-monokai.dark.sh
-eval "`dircolors -b ~/.dir_colors`"
-alias ls='ls --color=auto'
+#eval "`dircolors -b ~/.dir_colors`"
+#alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias diff=colordiff
+#alias diff=colordiff
+alias gs='git status'
+alias ghead='git show -p HEAD'
+alias gd='git diff'
+alias gdc='git diff --cached'
+alias gl='git log'
+alias ga='git add'
+alias gap='git add -p'
+alias gc='git commit'
+alias gca='git commit --amend --no-edit'
+alias gcan='gca'
+alias gcb='git checkout -b'
+alias gcf='git checkout --'
+alias grh='git reset HEAD'
+alias gpub='git push -u jc'
+alias gforce='git push jc +`git rev-parse --abbrev-ref HEAD`'
+alias gfa='git fetch --all'
+alias gbase='git rebase origin/master'
+alias gibase='git rebase -i origin/master'
 
 #alias less='less -FRSX'
 # F = exit on small files
@@ -57,8 +77,6 @@ alias diff=colordiff
 # the "79 column window is too narrow" shit has been driving me crazy
 alias w='w|cat'
 
-# we use vim and we use tabs. always.
-alias vim='vim -p'
 export VISUAL=vim
 export EDITOR=vim
 export PAGER=less
@@ -81,3 +99,9 @@ for COLOR in red blue green yellow cyan magenta white black; do
 done
 
 PROMPT=$'$blue%D{%T} $red%n@%m:$boldgreen%~\n$boldcyan%#%{$reset_color%} '
+
+# rbenv
+eval "$(rbenv init -)"
+
+# pyenv
+eval "$(pyenv init -)"

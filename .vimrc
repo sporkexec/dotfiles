@@ -32,6 +32,7 @@ Plugin 'rking/ag.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'zirrostig/vim-schlepp'
+Plugin 'kchmck/vim-coffee-script'
 
 " Plugin seems to sometimes crash upon write+close
 " We'll just manually set a similar filetype for the moment

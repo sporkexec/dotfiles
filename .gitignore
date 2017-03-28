@@ -47,6 +47,7 @@
 .ncmpcpp
 .npm
 .nv
+.nvm
 .nvidia-settings-rc
 .oracle_jre_usage
 .pip
@@ -58,8 +59,14 @@
 .pylint.d
 .python-eggs
 .python_history
+.python-version
 .rbenv
 .rediscli_history
+.Rhistory
+.rstudio-desktop
+.rvm
+.rvmrc
+.sh_history
 .ssh
 .steam*
 .sqlite_history

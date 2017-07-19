@@ -67,7 +67,7 @@ alias gforce='git push jc +`git rev-parse --abbrev-ref HEAD`'
 alias gfa='git fetch --all'
 alias gbase='git rebase origin/master'
 alias gibase='git rebase -i origin/master'
-alias gpr="git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1"
+function gpr() { git fetch origin pull/$1/head:pr/$1 && git checkout pr/$1 }
 
 #alias less='less -FRSX'
 # F = exit on small files
